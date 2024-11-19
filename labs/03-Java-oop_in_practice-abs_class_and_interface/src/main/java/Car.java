@@ -1,23 +1,26 @@
 public class Car extends AbstractEngineVehicle{
 
+
     private final String model;
+    private static final int NUM_OF_GEARS = 5;
 
     public Car(String model) {
-        //TODO write here...
+        super(NUM_OF_GEARS);
+        this.model = model;
     }
 
     @Override
     protected String doStart() {
-        //TODO write here...
+        return "Starting the " + model;
     }
 
     @Override
     protected String doStop() {
-        //TODO write here...
+        return "Stopping the " + model;
     }
 
     @Override
     public String drive() {
-        //TODO write here...
+       return "Driving a " +  model;
     }
 }
