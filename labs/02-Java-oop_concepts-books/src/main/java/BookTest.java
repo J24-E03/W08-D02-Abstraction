@@ -2,9 +2,9 @@ public class BookTest {
 
   public static void main(String[] args) {
     //TODO initialize authors below!
-    Author author1 = ...
-    Author author2 = ...
-    Author author3 = ...
+    Author author1 = new Author("Gabriel", "gabriel@email.com", Gender.MALE);
+    Author author2 = new Author("Lara", "joan@email.com", Gender.FEMALE);
+    Author author3 = new Author("Joan", "joan@email.com", Gender.NON_BINARY);
 
     System.out.println(author1);
     System.out.println(author2);
@@ -19,9 +19,9 @@ public class BookTest {
     System.out.println("========================");
 
     //TODO initialize books below!
-    Book book1 = ...
-    Book book2 = ...
-    Book book3 = ...
+    Book book1 = new Book("Java Book", author2, 18.79, 4);
+    Book book2 = new Book("Kid's Book", author1, 9.99);
+    Book book3 = new Book("How to Construct a New Society", author3, 13.5, 20);
 
     System.out.println(book1);
     System.out.println(book2);
@@ -34,8 +34,8 @@ public class BookTest {
     System.out.println("price is: " + book3.getPrice());
     System.out.println("qty is: " + book3.getQty());
     System.out.println("Author is: " + book3.getAuthor()); // Author's toString()
-    System.out.println("Author's name is: " + book3.getAuthor().getName());
-    System.out.println("Author's email is: " + book3.getAuthor().getEmail());
+    System.out.println("Author's name is: " + book3.getAuthorName());
+    System.out.println("Author's email is: " +  book3.getAuthorEmail());
     System.out.println("Book after changed price and quantity: " + book3);
   }
 }
