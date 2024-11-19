@@ -1,20 +1,23 @@
 public class Motorbike extends AbstractEngineVehicle{
+
+    private static final int NUM_OF_GEARS = 6;
+
     public Motorbike() {
-        //TODO write here...
+        super(NUM_OF_GEARS);
     }
 
     @Override
     protected String doStart() {
-        //TODO write here...
+        return "Starting the motorbike";
     }
 
     @Override
     protected String doStop() {
-        //TODO write here...
+        return "Stopping the motorbike";
     }
 
     @Override
     public String drive() {
-        //TODO write here...
+        return "Driving the motorbike";
     }
 }

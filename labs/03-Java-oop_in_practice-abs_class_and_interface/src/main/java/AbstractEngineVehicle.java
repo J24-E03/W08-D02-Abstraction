@@ -9,22 +9,50 @@ public abstract class AbstractEngineVehicle implements Vehicle{
     private boolean isOn;
 
     public AbstractEngineVehicle(int numberOfGears) {
-        //TODO write here...
+        this.numberOfGears = numberOfGears;
+        currentGear = 0;
+        gearShouldIncrease = true;
+        isOn = false;
     }
 
     @Override
     public String start() {
-        //TODO write here...
+        isOn = true;
+        changeGear();
+        return doStart();
     }
 
     @Override
     public String stop() {
-        //TODO write here...
+        isOn = false;
+        currentGear = 0;
+        return doStop();
     }
 
     @Override
     public String changeGear() {
-        //TODO write here...
+        if (!isOn) {
+            return "You need to turn the vehicle on first.";
+        }
+
+        int previousGear = currentGear;
+
+        if (gearShouldIncrease) {
+            if (currentGear < numberOfGears) {
+                currentGear++;
+            } else {
+                gearShouldIncrease = false;
+                currentGear--;
+            }
+        } else {
+            if (currentGear > 1) {
+                currentGear--;
+            } else {
+                gearShouldIncrease = true;
+                currentGear++;
+            }
+        }
+        return "Changed from gear [" + previousGear + "] to [" + currentGear + "].";
     }
 
     protected abstract String doStart();
