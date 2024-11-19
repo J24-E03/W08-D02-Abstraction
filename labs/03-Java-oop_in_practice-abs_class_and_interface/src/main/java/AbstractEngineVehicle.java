@@ -9,8 +9,8 @@ public abstract class AbstractEngineVehicle implements Vehicle {
     private boolean gearShouldIncrease = false;
     private boolean isOn = false;
 
-    protected AbstractEngineVehicle(int numberOfGears, int numberOfGears1) {
-        this.numberOfGears = numberOfGears1;
+    protected AbstractEngineVehicle(int numberOfGears) {
+        this.numberOfGears = numberOfGears;
     }
 
     @Override
