@@ -4,9 +4,9 @@ import lombok.*;
 @Getter @Setter
 public abstract class AbstractEngineVehicle implements Vehicle {
     private final int numberOfGears;
-    @Min(0)
-    private int currentGear = 0;
-    private boolean gearShouldIncrease = false;
+    @Min(1)
+    private int currentGear = 1;
+    private boolean gearShouldIncrease = true;
     private boolean isOn = false;
 
     protected AbstractEngineVehicle(int numberOfGears) {
@@ -27,6 +27,7 @@ public abstract class AbstractEngineVehicle implements Vehicle {
     public String stop() {
         if (this.isOn()) {
             this.setOn(false);
+            this.setCurrentGear(0);
             return doStop();
         }
 
@@ -35,12 +36,27 @@ public abstract class AbstractEngineVehicle implements Vehicle {
 
     @Override
     public String changeGear() {
-        if (this.isOn() && this.getCurrentGear() < this.getNumberOfGears()) {
-            this.setCurrentGear(this.getCurrentGear() + 1);
-            return "Gear changed to " + this.getCurrentGear();
+        if (this.isOn() && this.getCurrentGear() == this.getNumberOfGears()) {
+            this.setGearShouldIncrease(false);
         }
 
-        return "The vehicle is off or already in the highest gear!";
+        if (this.isOn() && this.getCurrentGear() == 1) {
+            this.setGearShouldIncrease(true);
+        }
+
+        // shift up
+        if (this.isOn() && this.getCurrentGear() < this.getNumberOfGears() && this.isGearShouldIncrease()) {
+            this.setCurrentGear(this.getCurrentGear() + 1);
+            return "Changed from gear [" + (this.getCurrentGear() - 1) + "] to [" + this.getCurrentGear() + "].";
+        }
+
+        // shift down
+        if (this.isOn() && this.getCurrentGear() > 1 && !this.isGearShouldIncrease()) {
+            this.setCurrentGear(this.getCurrentGear() - 1);
+            return "Changed from gear [" + (this.getCurrentGear() + 1) + "] to [" + this.getCurrentGear() + "].";
+        }
+
+        return "You need to turn the vehicle on first.";
     }
 
     protected abstract String doStart();

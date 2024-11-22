@@ -8,7 +8,7 @@ public class Bicycle implements Vehicle {
     public String start() {
         if (this.isChained()) {
             this.setChained(false);
-            return "Bicycle is unchained.";
+            return "Starting to bike!";
         }
 
         if (this.isDriving()) {
@@ -25,7 +25,7 @@ public class Bicycle implements Vehicle {
 
         this.setDriving(false);
         this.setChained(true);
-        return "Bicycle is chained.";
+        return "Stopping the bike!";
     }
 
     public String drive() {
@@ -34,18 +34,10 @@ public class Bicycle implements Vehicle {
         }
 
         this.setDriving(true);
-        return "Bicycle is driving.";
+        return "Biking around!";
     }
 
     public String changeGear() {
-        if (this.isChained()) {
-            return "Bicycle is not unchained.";
-        }
-
-        if (!this.isDriving()) {
-            return "Bicycle is not driving.";
-        }
-
-        return "Bicycle gear is changed.";
+        return "This bike only has one gear, so cannot change it.";
     }
 }
