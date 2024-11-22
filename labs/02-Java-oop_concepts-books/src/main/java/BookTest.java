@@ -2,9 +2,9 @@ public class BookTest {
 
   public static void main(String[] args) {
     //TODO initialize authors below!
-    Author author1 = ...
-    Author author2 = ...
-    Author author3 = ...
+    Author author1 = new Author("Gabriel", "gabriel@gmail.com", 'm');
+    Author author2 = new Author("Lara", "lara@gmail.com", 'f');
+    Author author3 = new Author("Joan", "joan", 'u');
 
     System.out.println(author1);
     System.out.println(author2);
@@ -19,9 +19,9 @@ public class BookTest {
     System.out.println("========================");
 
     //TODO initialize books below!
-    Book book1 = ...
-    Book book2 = ...
-    Book book3 = ...
+    Book book1 = new Book("Java for Dummies", author1, 19.99, 99);
+    Book book2 = new Book("Java for Experts", author2, 29.99);
+    Book book3 = new Book("Java for Masters", author3, 39.99, 10);
 
     System.out.println(book1);
     System.out.println(book2);

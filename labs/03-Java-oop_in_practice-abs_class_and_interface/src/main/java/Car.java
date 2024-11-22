@@ -1,23 +1,27 @@
 public class Car extends AbstractEngineVehicle{
-
     private final String model;
 
     public Car(String model) {
-        //TODO write here...
+        super(5);
+        this.model = model;
     }
 
     @Override
     protected String doStart() {
-        //TODO write here...
+        this.start();
+
+        return "Starting the " + this.model;
     }
 
     @Override
     protected String doStop() {
-        //TODO write here...
+        this.stop();
+
+        return "Stopping the " + this.model;
     }
 
     @Override
     public String drive() {
-        //TODO write here...
+        return "Driving a " + this.model;
     }
 }
