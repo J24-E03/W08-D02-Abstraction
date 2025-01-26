@@ -28,10 +28,10 @@ public class TestSuite {
                 "change to 1!");
         assertEquals("Driving a " + carType, car.drive());
 
-        assertEquals("Changed from gear [1] to [2].", car.changeGear());
-        assertEquals("Changed from gear [2] to [3].", car.changeGear());
-        assertEquals("Changed from gear [3] to [4].", car.changeGear());
-        assertEquals("Changed from gear [4] to [5].", car.changeGear());
+        assertEquals("Changed from gear 1 to 2.", car.changeGear());
+        assertEquals("Changed from gear 2 to 3.", car.changeGear());
+        assertEquals("Changed from gear 3 to 4.", car.changeGear());
+        assertEquals("Changed from gear 4 to 5.", car.changeGear());
     }
 
     @Test
@@ -44,17 +44,17 @@ public class TestSuite {
                 "change to 1!");
         assertEquals("Driving a " + carType, car.drive());
 
-        assertEquals("Changed from gear [1] to [2].", car.changeGear());
-        assertEquals("Changed from gear [2] to [3].", car.changeGear());
-        assertEquals("Changed from gear [3] to [4].", car.changeGear());
-        assertEquals("Changed from gear [4] to [5].", car.changeGear());
+        assertEquals("Changed from gear 1 to 2.", car.changeGear());
+        assertEquals("Changed from gear 2 to 3.", car.changeGear());
+        assertEquals("Changed from gear 3 to 4.", car.changeGear());
+        assertEquals("Changed from gear 4 to 5.", car.changeGear());
 
-        assertEquals("Changed from gear [5] to [4].", car.changeGear());
-        assertEquals("Changed from gear [4] to [3].", car.changeGear());
-        assertEquals("Changed from gear [3] to [2].", car.changeGear());
-        assertEquals("Changed from gear [2] to [1].", car.changeGear());
+        assertEquals("Changed from gear 5 to 4.", car.changeGear());
+        assertEquals("Changed from gear 4 to 3.", car.changeGear());
+        assertEquals("Changed from gear 3 to 2.", car.changeGear());
+        assertEquals("Changed from gear 2 to 1.", car.changeGear());
 
-        assertEquals("Changed from gear [1] to [2].", car.changeGear());
+        assertEquals("Changed from gear 1 to 2.", car.changeGear());
 
         assertEquals("Stopping the " + carType, car.stop());
         assertEquals(0, ((AbstractEngineVehicle) car).getCurrentGear(), "When stopping the car, the gear should " +
@@ -70,7 +70,7 @@ public class TestSuite {
 
         assertEquals("Starting the " + carType, car.start());
 
-        assertEquals("Changed from gear [1] to [2].", car.changeGear());
+        assertEquals("Changed from gear 1 to 2.", car.changeGear());
 
         assertEquals("Stopping the " + carType, car.stop());
 
@@ -83,7 +83,7 @@ public class TestSuite {
 
         assertEquals("Starting the motorbike", bike.start());
         assertEquals("Driving the motorbike", bike.drive());
-        assertEquals("Changed from gear [1] to [2].", bike.changeGear());
+        assertEquals("Changed from gear 1 to 2.", bike.changeGear());
         assertEquals("Stopping the motorbike", bike.stop());
     }
 }
